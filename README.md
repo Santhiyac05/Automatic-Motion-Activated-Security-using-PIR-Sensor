@@ -18,6 +18,8 @@
 PIR sensors are widely used in motion detection systems, security alarms, automatic lighting systems, and smart surveillance. They are popular due to their low power consumption, affordability, and ease of integration with microcontrollers such as the Arduino Uno. The sensor typically has three pins: VCC (power), GND (ground), and OUT (signal). When idle, the output pin remains LOW. Once motion is detected, the sensor sends a HIGH signal to the microcontroller, which can be used to trigger a response such as turning on an LED or activating an alarm.
 In this experiment, the PIR sensor is connected to an Arduino Uno board. The VCC pin of the sensor is connected to the 5V supply of the Arduino to power the sensor. The GND pin is connected to the Arduino’s ground. The OUT pin is connected to a digital input pin (pin 2 in this case) of the Arduino. The Arduino continuously monitors the state of the signal pin. If the signal pin goes HIGH, it means the sensor has detected motion, and the Arduino is programmed to turn ON the built-in LED on pin 13. If no motion is detected, the signal remains LOW, and the LED is turned OFF.
 Circuit Diagram:
+<img width="1021" height="696" alt="image" src="https://github.com/user-attachments/assets/53ca367b-4013-4e80-81d1-2e645c8bd011" />
+
  
 ## Procedure: //Modify based on your circuit
 
@@ -60,10 +62,30 @@ Step 7: Save Your Work
 
 
 # Code:
+int pirPin = 2;        // PIR sensor OUT pin connected to D2
+int ledPin = 13;       // Built-in LED pin
 
+void setup() {
+  pinMode(pirPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);  // for monitoring in Serial Monitor
+}
+
+void loop() {
+  int motionState = digitalRead(pirPin);
+
+  if (motionState == HIGH) {
+    digitalWrite(ledPin, HIGH);   // Turn LED ON
+    Serial.println("Motion Detected!");
+  } else {
+    digitalWrite(ledPin, LOW);    // Turn LED OFF
+    Serial.println("No Motion");
+  }
+}
 
 
 # Output:
+https://github.com/user-attachments/assets/771e8afb-e072-4982-9e30-98c733d56281
 
 
 
