@@ -62,6 +62,7 @@ Step 7: Save Your Work
 
 
 # Code:
+```
 int pirPin = 2;        // PIR sensor OUT pin connected to D2
 int ledPin = 13;       // Built-in LED pin
 
@@ -83,7 +84,7 @@ void loop() {
   }
 }
 
-
+```
 # Output:
 https://github.com/user-attachments/assets/771e8afb-e072-4982-9e30-98c733d56281
 
